@@ -15,11 +15,13 @@ doc = Nokogiri::HTML(open("https://www.bodybuilding.com/fun/becker3.htm"))
 Ectomorph_Char = doc.search("#DPG p").children[4..8].text
   Ectomorph_Training = doc.search("#DPG p").children[18..20].text
 
+Mesomorph_Char = doc.search("#DPG p").children[9..10].text
+  Mesomorph_Training = doc.search("#DPG p").children[22..24].text
+  
 Endomorph_Char = doc.search("#DPG p").children[11..12].text
   Endomorph_Training = doc.search("#DPG p").children[26..28].text
 
-Mesomorph_Char = doc.search("#DPG p").children[9..10].text
-  Mesomorph_Training = doc.search("#DPG p").children[22..24].text
+
 
 In_Between_Char = doc.search("#DPG p").children[29..35].text
 
