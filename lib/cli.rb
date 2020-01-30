@@ -1,5 +1,5 @@
 class CLI
-    attr_accessor :body_type, :info
+    attr_accessor :body_type, :info, :menu
 
 def call
     menu
@@ -7,11 +7,13 @@ def call
     input = gets.chomp
         if input.to_i == 1
             puts "You are an Ectomorph"
-            @name = Body_Type.new("ectomorph")
+            @name = Body_Type.new("Ectomorph".capitalize)
             more_info
         elsif
             input.to_i == 2
             puts "You are an Mesomorph"
+            @name = Body_Type.new("Mesomorph".capitalize)
+            more_info
         elsif
             input.to_i == 3
             puts "You are an Endomorph"
@@ -41,11 +43,22 @@ def call
     end
 
     def more_info
-        puts "Would you like to get more information? Y/N"
+        puts "Would you like to get more information about #{@name.type}? Y/N"
         input = gets.chomp 
             if input.capitalize == "Y"
-                puts "showing more information"
-                @name.info
+                puts "More info here on #{@name.type}:"
+                puts "_________________________"
+                @name.ectomorph
+                puts "How about some training tips??  Y/N"
+                    response = gets.chomp
+                        if response.capitalize == "Y"
+                            @name.ectomorph_training
+                        elsif response.capitalize == "N"
+                            puts "Ok, Maybe next time!"
+                        else
+                            puts "Invalid"
+                        end
+                
             elsif input.capitalize == "N"
                 self.call
             else
