@@ -6,12 +6,12 @@ class Body_Type
     end
 
 
-    def ectomorph
-        puts @type = Scraper.new.ecto_info
+    def ectomorph_info
+        puts Scraper.new.ecto_info
     end
 
     def ectomorph_training
-        puts @type = Scraper.new.ecto_training
+        puts Scraper.new.ecto_training
     end
 
     def training

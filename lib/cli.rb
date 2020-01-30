@@ -4,29 +4,9 @@ class CLI
 def call
     menu
     list_types
-    input = gets.chomp
-        if input.to_i == 1
-            puts "You are an Ectomorph"
-            @name = Body_Type.new("Ectomorph".capitalize)
-            more_info
-        elsif
-            input.to_i == 2
-            puts "You are an Mesomorph"
-            @name = Body_Type.new("Mesomorph".capitalize)
-            more_info
-        elsif
-            input.to_i == 3
-            puts "You are an Endomorph"
-        elsif
-            input.to_i == 4
-            puts "You are an In-betweener" 
-        elsif
-            input ==  "EXIT"
-            self.exit                                          
-        else
-            puts "Invalid!!"
-        end
+    user_input
     end
+
 
     def menu
         puts "Hey, welcome to my Body Type, where you can learn how to train!"
@@ -42,22 +22,42 @@ def call
         puts "5. EXIT"
     end
 
+    def user_input
+        input = gets.chomp
+        if input.to_i == 1
+            puts "You are an Ectomorph"
+            @ectomorph = Body_Type.new("Ectomorph".capitalize)
+            puts "Would you like to get more information about #{self.type}? Y/N"
+            input == "Y" ? more_info : "Leave!"
+        elsif
+            input.to_i == 2
+            puts "You are an Mesomorph"
+            @mesomorph = Body_Type.new("Mesomorph".capitalize)
+            more_info
+        elsif
+            input.to_i == 3
+            puts "You are an Endomorph"
+            @endomorph = Body_Type.new("Endomorph".capitalize)
+        elsif
+            input.to_i == 4
+            puts "You are an In-betweener"
+            @in_betweener = Body_Type.new("In-Betweener".capitalize)
+        elsif
+            input ==  "EXIT"
+            self.exit                                          
+        else
+            puts "Invalid!!"
+        end
+
+    end
+
     def more_info
-        puts "Would you like to get more information about #{@name.type}? Y/N"
         input = gets.chomp 
             if input.capitalize == "Y"
-                puts "More info here on #{@name.type}:"
+                puts "More info here on #{self.type}:"
                 puts "_________________________"
                 @name.ectomorph
-                puts "How about some training tips??  Y/N"
-                    response = gets.chomp
-                        if response.capitalize == "Y"
-                            @name.ectomorph_training
-                        elsif response.capitalize == "N"
-                            puts "Ok, Maybe next time!"
-                        else
-                            puts "Invalid"
-                        end
+                training_tips
                 
             elsif input.capitalize == "N"
                 self.call
@@ -67,30 +67,17 @@ def call
             end
     end
 
-    def input
-        input = gets.chomp
-        if input.to_i == 1
-            puts "You are an Ectomorph"
-            name = Body_Type.new("ectomorph")
-            more_info
-        elsif
-            input.to_i == 2
-            puts "You are an Mesomorph"
-        elsif
-            input.to_i == 3
-            puts "You are an Endomorph"
-        elsif
-            input.to_i == 4
-            puts "You are an In-betweener" 
-        elsif
-            input == "EXIT"
-            self.exit                                          
-        else
-            puts "Invalid!!"
-        end
-
+    def  training_tips
+        puts "How about some training tips??  Y/N"
+                response = gets.chomp
+                if response.capitalize == "Y"
+                    @name.ectomorph_training
+                elsif response.capitalize == "N"
+                    puts "Ok, Maybe next time!"
+                else
+                    puts "Invalid"
+                end
     end
-
 
     def exit
         puts "See you later when you're ready to train!"
