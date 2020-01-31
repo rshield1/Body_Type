@@ -12,8 +12,8 @@ def call
 
 
     def menu
-        puts "Hey, welcome to my Body Type, where you can learn how to train!"
-        puts "I take only these inputs Numbers 1-4, HELP, EXIT"
+        puts "Hey, welcome to Rob's CLI Body Type program, where you can learn your body type and how to train!"
+        puts "I take only these inputs: Numbers 1-4, HELP, EXIT"
         puts "What is you body type?"
     end
 
