@@ -10,42 +10,42 @@ class Scraper
     end
 
     def ecto_info
-    doc
+    @doc = Nokogiri::HTML(open("https://www.bodybuilding.com/fun/becker3.htm"))
     @ectomorph_info = @doc.search("#DPG p").children[4..8].text
     end
     
     def ecto_training
-    doc
+    @doc = Nokogiri::HTML(open("https://www.bodybuilding.com/fun/becker3.htm"))
     @ectomorph_training = @doc.search("#DPG p").children[18..20].text
     end
   
     def meso_info
-    doc
+    @doc = Nokogiri::HTML(open("https://www.bodybuilding.com/fun/becker3.htm"))
     @mesomorph_info = @doc.search("#DPG p").children[9..10].text
     end
 
     def meso_training
-    doc
+    @doc = Nokogiri::HTML(open("https://www.bodybuilding.com/fun/becker3.htm"))
     @mesomorph_training = @doc.search("#DPG p").children[22..24].text
     end
 
     def endo_info
-    doc
+    @doc = Nokogiri::HTML(open("https://www.bodybuilding.com/fun/becker3.htm"))
     @endomorph_info = @doc.search("#DPG p").children[11..12].text
     end
 
     def endo_training
-    doc
+    @doc = Nokogiri::HTML(open("https://www.bodybuilding.com/fun/becker3.htm"))
     @endomorph_train = doc.search("#DPG p").children[26..28].text
     end
     
     def in_info
-    doc
+    @doc = Nokogiri::HTML(open("https://www.bodybuilding.com/fun/becker3.htm"))
     @in_Between_char = @doc.search("#DPG p").children[29..35].text
     end
 
     def goals
-    doc
+    @doc = Nokogiri::HTML(open("https://www.bodybuilding.com/fun/becker3.htm"))
     @goals = @doc.search("#DPG p").children[14].attributes["href"].value
     end
 

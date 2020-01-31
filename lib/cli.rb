@@ -3,9 +3,6 @@ require_relative "./environment.rb"
 class BodyType::CLI
     attr_accessor :endomorph, :ectomorph, :mesomorph, :name, :ectomorph_info
 
-    #def initialize(attributes)
-        #attributes.each { | key, value | self.send(("#{key=}"), value) }
-    #end
     def call
         menu
         list_types
@@ -15,7 +12,7 @@ class BodyType::CLI
 
     def menu
         puts "Hey, welcome to Rob's CLI Body Type program, where you can learn your body type and how to train!"
-        puts "I take only these inputs: Numbers 1-4, HELP, EXIT"
+        puts "I take only these inputs: Numbers 1-4, HELP, EXIT, or GOALS"
         puts "What is you body type?"
     end
 
@@ -25,6 +22,7 @@ class BodyType::CLI
         puts "3. Endomorph (Solid/Heavy)"
         puts "4. In-Betweeners (Not-Sure)"
         puts "5. EXIT"
+        puts "6. GOALS"
     end
 
     def user_input
@@ -155,8 +153,15 @@ class BodyType::CLI
                 self.call
             end
         elsif
-            input == "EXIT" || "exit"
-            puts "See you later!"                                        
+            input == "EXIT" || input == "exit"
+            puts "See you later!"
+        elsif input == "GOALS" || "goals"
+            goals = Body_Type.new("Goals")
+                puts "Here is the site to help you achieve your #{goals.name}"
+            goals.goals
+                puts "Hope you found this information helpful!"
+                puts "__________________________________________"
+                self.call                                       
         else
             puts "Invalid!!, Try again"
             user_input
