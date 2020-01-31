@@ -1,6 +1,9 @@
 class CLI
-    attr_accessor :body_type, :info, :menu
+    attr_accessor :endomorph, :ectomorph, :mesomorph, :name, :ectomorph_info
 
+    #def initialize(attributes)
+        #attributes.each { | key, value | self.send(("#{key=}"), value) }
+    #end
 def call
     menu
     list_types
@@ -26,9 +29,35 @@ def call
         input = gets.chomp
         if input.to_i == 1
             puts "You are an Ectomorph"
-            @ectomorph = Body_Type.new("Ectomorph".capitalize)
-            puts "Would you like to get more information about #{self.type}? Y/N"
-            input == "Y" ? more_info : "Leave!"
+            ectomorph = Body_Type.new("Ectomorph".capitalize)
+            puts "Would you like to get more information about #{ectomorph.name}? Y/N"
+            input = gets.chomp 
+            if input.capitalize == "Y"
+                puts "More info here on #{ectomorph.name}:"
+                puts "_________________________"
+                ectomorph.ectomorph_info
+                puts "How about some training tips??  Y/N"
+                response = gets.chomp
+                if response.capitalize == "Y"
+                    ectomorph.ectomorph_training
+                    puts "Hope you found this information helpful!"
+                    self.call
+                elsif response.capitalize == "N"
+                    puts "Ok, Maybe next time!"
+                    exit
+                else
+                    puts "Invalid"
+                    self.call
+                end
+                
+            elsif input.capitalize == "N"
+                self.call
+            else
+                puts "Invalid!! Start Over!"
+                self.call
+            end
+
+
         elsif
             input.to_i == 2
             puts "You are an Mesomorph"
@@ -43,20 +72,22 @@ def call
             puts "You are an In-betweener"
             @in_betweener = Body_Type.new("In-Betweener".capitalize)
         elsif
-            input ==  "EXIT"
-            self.exit                                          
+            input == "EXIT"
+            puts "See you later!"                                        
         else
-            puts "Invalid!!"
+            puts "Invalid!!, Try again"
+            user_input
         end
 
     end
 
     def more_info
+        puts "Would you like to get more information about #{self.name}? Y/N"
         input = gets.chomp 
             if input.capitalize == "Y"
-                puts "More info here on #{self.type}:"
+                puts "More info here on #{self.name}:"
                 puts "_________________________"
-                @name.ectomorph
+                self.ectomorph_info
                 training_tips
                 
             elsif input.capitalize == "N"

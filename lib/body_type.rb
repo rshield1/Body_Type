@@ -1,17 +1,20 @@
 class Body_Type
-    attr_accessor  :type, :training, :scraper, :ecto_info, :scraping, :info
+    attr_accessor :type, :name
 
-    def initialize(type)
-        @type = type
+    def initialize(name)
+        @name = name
     end
 
+    
 
     def ectomorph_info
-        puts Scraper.new.ecto_info
+        puts "Infooooo"
+        #Scraper.new.ecto_info
     end
 
     def ectomorph_training
-        puts Scraper.new.ecto_training
+        puts "Training"
+        #Scraper.new.ecto_training
     end
 
     def training
