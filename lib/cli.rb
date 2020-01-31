@@ -1,3 +1,5 @@
+require_relative "./environment.rb"
+
 class BodyType::CLI
     attr_accessor :endomorph, :ectomorph, :mesomorph, :name, :ectomorph_info
 
