@@ -43,6 +43,7 @@ class BodyType::CLI
                 if response.capitalize == "Y"
                     ectomorph.ectomorph_training
                     puts "Hope you found this information helpful!"
+                    puts "__________________________________________"
                     self.call
                 elsif response.capitalize == "N"
                     puts "Ok, Maybe next time!"
@@ -75,6 +76,7 @@ class BodyType::CLI
                 if response.capitalize == "Y"
                     mesomorph.mesomorph_training
                     puts "Hope you found this information helpful!"
+                    puts "__________________________________________"
                     self.call
                 elsif response.capitalize == "N"
                     puts "Ok, Maybe next time!"
@@ -105,6 +107,7 @@ class BodyType::CLI
                 if response.capitalize == "Y"
                     endomorph.endomorph_training
                     puts "Hope you found this information helpful!"
+                    puts "__________________________________________"
                     self.call
                 elsif response.capitalize == "N"
                     puts "Ok, Maybe next time!"
@@ -135,6 +138,7 @@ class BodyType::CLI
                 if response.capitalize == "Y"
                     in_betweener.in_betweener_training
                     puts "Hope you found this information helpful!"
+                    puts "__________________________________________"
                     self.call
                 elsif response.capitalize == "N"
                     puts "Ok, Maybe next time!"
@@ -151,7 +155,7 @@ class BodyType::CLI
                 self.call
             end
         elsif
-            input == "EXIT"
+            input == "EXIT" || "exit"
             puts "See you later!"                                        
         else
             puts "Invalid!!, Try again"

@@ -8,43 +8,43 @@ class Body_Type
     
 
     def ectomorph_info
-        puts "ectomorph_info"
-        #Scraper.new.ecto_info
+        puts "Ectomorph Info:"
+        Scraper.new.ecto_info
     end
 
     def ectomorph_training
-        puts "ectomorph_training"
-        #Scraper.new.ecto_training
+        puts "Ectomorph Training:"
+        Scraper.new.ecto_training
     end
 
     def endomorph_info
-        puts "endomorph_info"
-        #Scraper.new.ecto_info
+        puts "endomorph Info:"
+        Scraper.new.endo_info
     end
 
     def endomorph_training
-        puts "endomorph_training"
-        #Scraper.new.ecto_training
+        puts "Endomorph_Training:"
+        Scraper.new.endo_training
     end
     
     def mesomorph_info
-        puts "mesomorph_info"
-        #Scraper.new.ecto_info
+        puts "Mesomorph Info:"
+        Scraper.new.meso_info
     end
 
     def mesomorph_training
-        puts "mesomorph_training"
-        #Scraper.new.ecto_training
+        puts "Mesomorph Training:"
+        Scraper.new.meso_training
     end
     
     def in_betweener_info
-        puts "in_betweener_info"
-        #Scraper.new.ecto_info
+        puts "In-Betweener Info:"
+        Scraper.new.in_info
     end
 
     def in_betweener_training
-        puts "in_betweener_training"
-        #Scraper.new.ecto_training
+        puts "In Betweener Training:"
+        Scraper.new.in_training
     end
     
 
