@@ -1,6 +1,9 @@
 require_relative "./environment.rb"
 
 class BodyType::CLI
+
+    include Body_Type
+    
     attr_accessor :endomorph, :ectomorph, :mesomorph, :name, :ectomorph_info
 
     def call

@@ -9,6 +9,8 @@ require_relative "./scraper.rb"
 module BodyType
   class Error < StandardError; end
   # Your code goes here...
+end
+
   
 end
 
