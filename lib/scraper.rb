@@ -36,12 +36,12 @@ class Scraper
 
     def endo_training
     @doc = Nokogiri::HTML(open("https://www.bodybuilding.com/fun/becker3.htm"))
-    endomorph_train = doc.search("#DPG p").children[26..28].text
+    endomorph_train = puts doc.search("#DPG p").children[26..28].text
     end
     
     def in_info
     @doc = Nokogiri::HTML(open("https://www.bodybuilding.com/fun/becker3.htm"))
-    in_Between_char = @doc.search("#DPG p").children[29..35].text
+    in_Between_char = puts @doc.search("#DPG p").children[29..35].text
     end
 
     def goals

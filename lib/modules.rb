@@ -1,8 +1,9 @@
 module BodyType
     class Error < StandardError; end
-     #Your code goes here..
-    def hello
-      puts "[]"
+    def call
+        menu
+        list_types
+        user_input
     end
 
     def menu
@@ -23,6 +24,176 @@ module BodyType
     def exit
         puts "See you later when you're ready to train!"
     end
-    
-  end
+
+    def call
+        menu
+        list_types
+        user_input
+    end
+
+    def  training_tips
+        puts "How about some training tips??  Y/N"
+            response = gets.chomp
+                if response.capitalize == "Y" && self.name == "Ectomorph"
+                    @name.ectomorph_training
+                elsif response.capitalize == "Y" && self.name == "Endomorph"
+                    @name.endomorph_training
+                elsif response.capitalize == "Y" && self.name == "Mesomorph"
+                    @name.mesomorph_training
+                elsif response.capitalize == "N"
+                    puts "Ok, Maybe next time!"
+                else
+                    puts "Invalid Response"
+                end
+    end
+
+    def more_info
+        puts "Would you like to get more information about #{self.name}? Y/N"
+        input = gets.chomp 
+            if input.capitalize == "Y" && self.name == "Ectomorph"
+                puts "More info here on #{self.name}:"
+                puts "_________________________"
+                self.ectomorph_info
+                training_tips
+            elsif input.capitalize == "Y" && self.name == "Endomorph"
+                puts "More info here on #{self.name}:"
+                puts "_________________________"
+                self.endomorph_info
+                training_tips
+            elsif input.capitalize == "Y" && self.name == "Mesomorph"
+                puts "More info here on #{self.name}:"
+                puts "_________________________"
+                self.mesoomorph_info
+                training_tips
+            elsif input.capitalize == "Y" && self.name == "In_Betweener"
+                puts "There's no additional information on #{self.name}:"
+                puts "_________________________"
+                
+            elsif input.capitalize == "N"
+                self.call
+            else
+                puts "Invalid!! Start Over!"
+                self.call
+            end
+    end
+
+    #additional user input for type
+    def mesomorph_input
+        puts "You are an Mesomorph"
+            mesomorph = Body_Type.new("Mesomorph".capitalize)
+            puts "Would you like to get more information about #{mesomorph.name}? Y/N"
+            input = gets.chomp 
+            if input.capitalize == "Y"
+                puts "More info here on #{mesomorph.name}:"
+                puts "_________________________"
+                mesomorph.mesomorph_info
+                puts "How about some training tips??  Y/N"
+                response = gets.chomp
+                if response.capitalize == "Y"
+                    mesomorph.mesomorph_training
+                    puts "Hope you found this information helpful!"
+                    puts "__________________________________________"
+                    self.call
+                elsif response.capitalize == "N"
+                    puts "Ok, Maybe next time!"
+                    self.call
+                else
+                    puts "Invalid"
+                    self.call
+                end
+                
+            elsif input.capitalize == "N"
+                self.call
+            else
+                puts "Invalid!! Start Over!"
+                self.call
+            end
+    end
+
+    def ectomorph_input
+        puts "You are an Ectomorph"
+            ectomorph = Body_Type.new("Ectomorph".capitalize)
+            puts "Would you like to get more information about #{ectomorph.name}? Y/N"
+            input = gets.chomp 
+            if input.capitalize == "Y"
+                puts "More info here on #{ectomorph.name}:"
+                puts "_________________________"
+                ectomorph.ectomorph_info
+                puts "How about some training tips??  Y/N"
+                response = gets.chomp
+                if response.capitalize == "Y"
+                    ectomorph.ectomorph_training
+                    puts "Hope you found this information helpful!"
+                    puts "__________________________________________"
+                    self.call
+                elsif response.capitalize == "N"
+                    puts "Ok, Maybe next time!"
+                    self.call
+                else
+                    puts "Invalid"
+                    self.call
+                end
+                
+            elsif input.capitalize == "N"
+                self.call
+            else
+                puts "Invalid!! Start Over!"
+                self.call
+            end
+
+
+
+    end
+
+    def endomorph_input
+        puts "You are an Endomorph"
+            endomorph = Body_Type.new("Endomorph".capitalize)
+            puts "Would you like to get more information about #{endomorph.name}? Y/N"
+            input = gets.chomp 
+            if input.capitalize == "Y"
+                puts "More info here on #{endomorph.name}:"
+                puts "_________________________"
+                endomorph.endomorph_info
+                puts "How about some training tips??  Y/N"
+                response = gets.chomp
+                if response.capitalize == "Y"
+                    endomorph.endomorph_training
+                    puts "Hope you found this information helpful!"
+                    puts "__________________________________________"
+                    self.call
+                elsif response.capitalize == "N"
+                    puts "Ok, Maybe next time!"
+                    self.call
+                else
+                    puts "Invalid"
+                    self.call
+                end
+                
+            elsif input.capitalize == "N"
+                self.call
+            else
+                puts "Invalid!! Start Over!"
+                self.call
+            end
+    end
+
+    def in_betweener_input
+        puts "You are an In-betweener"
+        in_betweener = Body_Type.new("In_Betweener".capitalize)
+        puts "Would you like to get more information about #{in_betweener.name}? Y/N"
+        input = gets.chomp 
+            if input.capitalize == "Y"
+                puts "More info here on #{in_betweener.name}:"
+                puts "_________________________"
+                in_betweener.in_betweener_info
+                puts "There are no additional training tips!"
+                
+            elsif input.capitalize == "N"
+                self.call
+            else
+                puts "Invalid!! Start Over!"
+                self.call
+            end
+    end
+end
   

@@ -42,11 +42,6 @@ class Body_Type
         Scraper.new.in_info
     end
 
-    def in_betweener_training
-        puts "In Betweener Training:"
-        Scraper.new.in_training
-    end
-
     def goals
         puts "Goals:"
         Scraper.new.goals
