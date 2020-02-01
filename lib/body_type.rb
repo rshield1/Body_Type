@@ -1,5 +1,5 @@
 class Body_Type
-    attr_accessor :type, :name
+    attr_accessor :type, :name, :endomorph, :ectomorph, :mesomorph, :name, :ectomorph_info
 
     def initialize(name)
         @name = name

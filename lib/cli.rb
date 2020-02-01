@@ -1,7 +1,7 @@
 
 class Cli
     include BodyType
-    attr_accessor :endomorph, :ectomorph, :mesomorph, :name, :ectomorph_info
+    
 
     def user_input
         input = gets.chomp
