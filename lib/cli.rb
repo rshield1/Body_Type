@@ -1,9 +1,6 @@
-require_relative "./environment.rb"
 
-class BodyType::CLI
-
-    include Body_Type
-    
+class Cli
+    include BodyType
     attr_accessor :endomorph, :ectomorph, :mesomorph, :name, :ectomorph_info
 
     def call
@@ -13,20 +10,6 @@ class BodyType::CLI
     end
 
 
-    def menu
-        puts "Hey, welcome to Rob's CLI Body Type program, where you can learn your body type and how to train!"
-        puts "I take only these inputs: Numbers 1-4, HELP, EXIT, or GOALS"
-        puts "What is you body type?"
-    end
-
-    def list_types
-        puts "1. Ectomorph (Slim)"
-        puts "2. Mesomorph (Muscular)"
-        puts "3. Endomorph (Solid/Heavy)"
-        puts "4. In-Betweeners (Not-Sure)"
-        puts "5. EXIT"
-        puts "6. GOALS"
-    end
 
     def user_input
         input = gets.chomp
