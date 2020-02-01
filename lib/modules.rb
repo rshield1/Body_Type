@@ -1,10 +1,7 @@
 module BodyType
     class Error < StandardError; end
-    def call
-        menu
-        list_types
-        user_input
-    end
+
+    #Main menu list items
 
     def menu
         puts "Hey, welcome to Rob's CLI Body Type program, where you can learn your body type and how to train!"
@@ -30,7 +27,7 @@ module BodyType
         list_types
         user_input
     end
-
+    #Training and More information
     def  training_tips
         puts "How about some training tips??  Y/N"
             response = gets.chomp
@@ -77,7 +74,7 @@ module BodyType
             end
     end
 
-    #additional user input for type
+    #Additional user input for type
     def mesomorph_input
         puts "You are an Mesomorph"
             mesomorph = Body_Type.new("Mesomorph".capitalize)
@@ -194,6 +191,15 @@ module BodyType
                 puts "Invalid!! Start Over!"
                 self.call
             end
+    end
+
+    def goals_input
+        goals = Body_Type.new("Goals")
+        puts "Here is the site to help you achieve your #{goals.name}"
+        goals.goals
+        puts "Hope you found this information helpful!"
+        puts "__________________________________________"
+        self.call
     end
 end
   

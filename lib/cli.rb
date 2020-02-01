@@ -9,23 +9,19 @@ class Cli
             ectomorph_input
         elsif
             input.to_i == 2
-            mesomorph_input
+                mesomorph_input
         elsif
             input.to_i == 3
-            endomorph_input
+                endomorph_input
         elsif
             input.to_i == 4
-            in_betweener_input
-        elsif input == "GOALS" || "goals"
-            goals = Body_Type.new("Goals")
-                puts "Here is the site to help you achieve your #{goals.name}"
-            goals.goals
-                puts "Hope you found this information helpful!"
-                puts "__________________________________________"
-                self.call   
+                in_betweener_input
+        elsif input.to_s == "GOALS" || input.to_s =="goals"
+            goals_input
+           
         elsif
             input == "EXIT" || input == "exit"
-            puts "See you later!"
+            exit
                                             
         else
             puts "Invalid!!, Try again"
