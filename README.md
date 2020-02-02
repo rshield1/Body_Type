@@ -1,34 +1,19 @@
 # BodyType
 
-# Welcome to your new gem!! After cloning the repo to you local drive, change directory to the local folder
-# run bundle install in your terminal to load the gem dependencies
-# open up the bin folder to run "bin/run" file.  The file should automatically recognize the ruby interperter, if not, run "ruby bin/run"
+# Welcome to your new gem!! Read Installation instructions!
 
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'body_type'
-```
-
-And then execute:
-
-    $ bundle install
-
-Or install it yourself as:
-
-    $ gem install body_type
-
-## Usage
-
-TODO: Write usage instructions here
+TODO:
     Welcome to your new gem!! 
 
-    1. After cloning the repo to you local drive, change directory to the local folder
-    2. Run bundle install in your terminal to load the gem dependencies
+    1. After cloning the repo to you local drive, change directory to the local folder.
+
+    2. Run $ bundle install in your terminal to load the gem dependencies.
+
     3. open up the bin folder to run "bin/run" file.  The file should automatically recognize the ruby interperter, if not, run "ruby bin/run"
+    
     4. Enjoy finding your body type training techniques!
 
 ## Development
