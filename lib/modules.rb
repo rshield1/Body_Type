@@ -5,7 +5,7 @@ module BodyType
 
     def menu
         puts "Hey, welcome to Rob's CLI Body Type program, where you can learn your body type and how to train!"
-        puts "I take only these inputs: Numbers 1-4, HELP, EXIT, or GOALS"
+        puts "I take only these inputs: Numbers 1-6, HELP, EXIT, or GOALS"
         puts "What is you body type?"
     end
 

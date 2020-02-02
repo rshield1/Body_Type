@@ -43,7 +43,7 @@ class Body_Type
     end
 
     def goals
-        puts "Goals:"
+        puts "Goals:  Click Link Below!"
         Scraper.new.goals
     end
 
