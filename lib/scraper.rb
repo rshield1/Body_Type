@@ -46,7 +46,7 @@ class Scraper
 
     def goals
     @doc = Nokogiri::HTML(open("https://www.bodybuilding.com/fun/becker3.htm"))
-    goals = @doc.search("#DPG p").children[14].attributes["href"].value
+    goals = puts @doc.search("#DPG p").children[14].attributes["href"].value
     end
 
 end

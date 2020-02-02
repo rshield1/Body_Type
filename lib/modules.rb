@@ -183,8 +183,9 @@ module BodyType
                 puts "More info here on #{in_betweener.name}:"
                 puts "_________________________"
                 in_betweener.in_betweener_info
+                puts "_________________________"
                 puts "There are no additional training tips!"
-                
+                self.call
             elsif input.capitalize == "N"
                 self.call
             else
