@@ -1,5 +1,5 @@
 class Body_Type
-    attr_accessor :type, :name, :endomorph, :ectomorph, :mesomorph, :name, :ectomorph_info
+    attr_accessor :type, :name, :endomorph, :ectomorph, :mesomorph, :ectomorph_info
 
     def initialize(name)
         @name = name
@@ -44,6 +44,7 @@ class Body_Type
 
     def goals
         puts "Goals:  Click Link Below!"
+        puts "_________________________"
         Scraper.new.goals
     end
 

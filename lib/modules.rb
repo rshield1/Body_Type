@@ -4,8 +4,8 @@ module BodyType
     #Main menu list items
 
     def menu
-        puts "Hey, welcome to Rob's CLI Body Type program, where you can learn your body type and how to train!"
-        puts "I take only these inputs: Numbers 1-6, HELP, EXIT, or GOALS"
+        puts "Welcome to Rob's CLI Body Type program, where you can learn your body type and how to train!"
+        puts "I take only these inputs: Numbers 1-6, HELP, GOALS, or EXIT!"
         puts "What is you body type?"
     end
 
@@ -14,8 +14,8 @@ module BodyType
         puts "2. Mesomorph (Muscular)"
         puts "3. Endomorph (Solid/Heavy)"
         puts "4. In-Betweeners (Not-Sure)"
-        puts "5. EXIT"
-        puts "6. GOALS"
+        puts "5. GOALS"
+        puts "6. EXIT"
     end
 
     def exit
