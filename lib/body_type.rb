@@ -48,6 +48,12 @@ class Body_Type
         Scraper.new.goals
     end
 
+    def links
+        puts "Links:  Click Links Below!"
+        puts "__________________________"
+        Scraper.new.all_links
+    end
+
     
 
 end

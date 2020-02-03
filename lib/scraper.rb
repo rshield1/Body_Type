@@ -38,4 +38,18 @@ class Scraper
     goals = puts @@doc.search("#DPG p").children[14].attributes["href"].value
     end
 
+    def all_links
+        links = @@doc.search("#DPG p a")
+        links.each do | link |
+            puts "#{link.children.text.capitalize}:"
+            puts "#{link.attributes["href"].value}"
+            puts "________________________________"
+        end
+    end
+
+     #(Element:0x43e3c18 {
+        #name = "a",
+        #attributes = [ #(Attr:0x446b0dc { name = "href", value = "https://www.bodybuilding.com/content/how-to-gain-weight.html" })],
+        #children = [ #(Text "gaining muscular weight")]
+        #})
 end

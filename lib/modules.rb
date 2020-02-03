@@ -6,7 +6,7 @@ module BodyType
     def menu
         puts "Welcome to Rob's CLI Body Type program, where you can learn your body type and how to train!"
         puts "I take only these inputs: Numbers 1-6, HELP, GOALS, or EXIT!"
-        puts "What is you body type?"
+        puts "Or if you just need all of the important links on the page, type LINKS"
     end
 
     def list_types
@@ -15,7 +15,8 @@ module BodyType
         puts "3. Endomorph (Solid/Heavy)"
         puts "4. In-Betweeners (Not-Sure)"
         puts "5. GOALS"
-        puts "6. EXIT"
+        puts "6. LINKS"
+        puts "7. EXIT"
     end
 
     def exit
@@ -200,6 +201,18 @@ module BodyType
         goals.goals
         puts "Hope you found this information helpful!"
         puts "__________________________________________"
+        self.call
+    end
+
+    def links_input
+        links = Body_Type.new("links")
+        puts "Here are the #{links.name} that will give you additional information to get started:"
+        puts "...."
+        puts "......."
+        puts "........."
+        puts ".........."
+        links.links
+        puts "Hope you found this information helpful!"
         self.call
     end
 end
