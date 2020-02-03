@@ -1,8 +1,13 @@
 
 class Scraper
+    attr_accessor :name, :info, :training, :goals, :links
 
+    def initialize(name)
+        @name = name
+        @@all << self
+    end
 
-
+    @@all = []
     @@doc = Nokogiri::HTML(open("https://www.bodybuilding.com/fun/becker3.htm"))
     
 

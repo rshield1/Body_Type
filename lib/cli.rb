@@ -12,7 +12,8 @@ class Cli
         puts "What is you body type?"
         input = gets.chomp
         if input.to_i == 1
-            ectomorph_input
+            ectomorph = Scraper.new("ectomorph")
+            Bodytype.new(ectomorph)
         elsif
             input.to_i == 2
                 mesomorph_input

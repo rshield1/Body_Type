@@ -1,8 +1,11 @@
 class Body_Type
-    attr_accessor :type, :name, :endomorph, :ectomorph, :mesomorph, :ectomorph_info
+    attr_accessor :name
 
+    @@all = []
+    
     def initialize(name)
         @name = name
+        @@all << self
     end
 
     
