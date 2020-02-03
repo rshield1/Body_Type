@@ -22,12 +22,7 @@ module BodyType
     def exit
         puts "See you later when you're ready to train!"
     end
-
-    def call
-        menu
-        list_types
-        user_input
-    end
+    
     #Training and More information
     def  training_tips
         puts "How about some training tips??  Y/N"

@@ -4,6 +4,12 @@ class Cli
 
     include BodyType
 
+    def call
+        menu
+        list_types
+        user_input
+    end
+
     def user_input
         puts "What is you body type?"
         input = gets.chomp
