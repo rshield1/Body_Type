@@ -1,15 +1,21 @@
 require 'pry'
 class Cli
-    attr_accessor :type, :scraper, :ectomorph, :endomorph, :mesomorph, :in_betweener
+    attr_accessor :name, :type, :scraper, :ectomorph, :endomorph, :mesomorph, :in_betweener, :links
+
+    def user
+    puts "What is your name?"
+    @name = gets.chomp
+    end
 
     def call
+        user
         menu
         list_types
         user_input
     end
 
     def user_input
-        puts "What is you body type?"
+        puts "What is you body type, #{self.name}?"
         input = gets.chomp
         if input.to_i == 1
             @scraper = Scraper.new("Ectomorph")
@@ -22,16 +28,22 @@ class Cli
             more_info
         elsif
             input.to_i == 3
-                endomorph_input
+            @scraper = Scraper.new("Endomorph")
+            @type = Body_Type.new("Endomorph")
+            more_info
         elsif
             input.to_i == 4
-                in_betweener_input
+            @scraper = Scraper.new("In-Betweener")
+            @type = Body_Type.new("In-Betweener")
+            more_info
         elsif 
             input.to_s == "GOALS" || input.to_s =="goals" || input.to_i == 5
-            goals_input
+            puts "GOALS:"
+            @goals = Scraper.new("goals").goals
         elsif
             input.to_s == "LINKS" || input.to_s == "links" || input.to_i == 6
-            links_input
+            puts "LINKS:"
+            @links = Scraper.new("Links").links
         elsif
             input == "EXIT" || input == "exit" || input.to_i == 7
             exit
@@ -44,7 +56,7 @@ class Cli
     end
 
     def menu
-        puts "Welcome to Rob's CLI Body Type program, where you can learn your body type and how to train!"
+        puts "Welcome to Rob's CLI Body Type program, #{self.name}! You can learn your body type and how to train!"
         puts "I take only these inputs: Numbers 1-6, HELP, GOALS, or EXIT!"
         puts "Or if you just need all of the important links on the page, type LINKS"
     end
@@ -60,20 +72,28 @@ class Cli
     end
 
     def exit
-        puts "See you later when you're ready to train!"
+        puts "See you later when you're ready to train, #{self.name}!"
     end
     
     def  training_tips
-        puts "How about some training tips??  Y/N"
+        puts "Hey #{self.name}, how about some training tips??  Y/N"
             response = gets.chomp
                 if response.capitalize == "Y" && @type.name == "Ectomorph"
                     @scraper.training
+                    puts "_________________________"
+                    self.call
                 elsif response.capitalize == "Y" && @type.name == "Mesomorph"
                     @scraper.training
+                    puts "_________________________"
+                    self.call
                 elsif response.capitalize == "Y" && @type.name == "Endomorph"
-                    @scraper.trainer
+                    @scraper.training
+                    puts "_________________________"
+                    self.call
                 elsif response.capitalize == "N"
                     puts "Ok, Maybe next time!"
+                    puts "_________________________"
+                    self.call
                 else
                     puts "Invalid Response"
                 end
@@ -92,14 +112,16 @@ class Cli
                 puts "_________________________"
                 @scraper.info
                 training_tips
-            elsif input.capitalize == "Y" && self.name == "Mesomorph"
-                puts "More info here on #{self.name}:"
+            elsif input.capitalize == "Y" && @type.name == "Endomorph"
+                puts "More info here on #{@type.name}:"
                 puts "_________________________"
-                self.mesoomorph_info
+                @scraper.info
                 training_tips
-            elsif input.capitalize == "Y" && self.name == "In_Betweener"
-                puts "There's no additional information on #{self.name}:"
+            elsif input.capitalize == "Y" && @type.name == "In-Betweener"
+                @scraper.info
+                puts "There's no additional information on #{@type.name}:"
                 puts "_________________________"
+                self.call
                 
             elsif input.capitalize == "N"
                 self.call
@@ -107,26 +129,5 @@ class Cli
                 puts "Invalid!! Start Over!"
                 self.call
             end
-    end
-
-    def goals_input
-        goals = Body_Type.new("Goals")
-        puts "Here is the site to help you achieve your #{goals.name}"
-        goals.goals
-        puts "Hope you found this information helpful!"
-        puts "__________________________________________"
-        self.call
-    end
-
-    def links_input
-        links = Body_Type.new("links")
-        puts "Here are the #{links.name} that will give you additional information to get started:"
-        puts "...."
-        puts "......."
-        puts "........."
-        puts ".........."
-        links.links
-        puts "Hope you found this information helpful!"
-        self.call
     end
 end
