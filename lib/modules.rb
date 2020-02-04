@@ -1,4 +1,4 @@
-module BodyType
-    class Error < StandardError; end
-end
+#module BodyType
+    #class Error < StandardError; end
+#end
   

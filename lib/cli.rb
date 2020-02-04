@@ -1,6 +1,6 @@
-
+require 'pry'
 class Cli
-    attr_accessor :name
+    attr_accessor :type, :scraper, :ectomorph, :endomorph, :mesomorph, :in_betweener
 
     def call
         menu
@@ -12,11 +12,14 @@ class Cli
         puts "What is you body type?"
         input = gets.chomp
         if input.to_i == 1
-            ectomorph = Scraper.new("ectomorph")
-            Bodytype.new(ectomorph)
+            @scraper = Scraper.new("Ectomorph")
+            @type = Body_Type.new("Ectomorph")
+            more_info
         elsif
             input.to_i == 2
-                mesomorph_input
+            @scraper = Scraper.new("Mesomorph")
+            @type = Body_Type.new("Mesomorph")
+            more_info
         elsif
             input.to_i == 3
                 endomorph_input
@@ -63,12 +66,12 @@ class Cli
     def  training_tips
         puts "How about some training tips??  Y/N"
             response = gets.chomp
-                if response.capitalize == "Y" && self.name == "Ectomorph"
-                    @name.ectomorph_training
-                elsif response.capitalize == "Y" && self.name == "Endomorph"
-                    @name.endomorph_training
-                elsif response.capitalize == "Y" && self.name == "Mesomorph"
-                    @name.mesomorph_training
+                if response.capitalize == "Y" && @type.name == "Ectomorph"
+                    @scraper.training
+                elsif response.capitalize == "Y" && @type.name == "Mesomorph"
+                    @scraper.training
+                elsif response.capitalize == "Y" && @type.name == "Endomorph"
+                    @scraper.trainer
                 elsif response.capitalize == "N"
                     puts "Ok, Maybe next time!"
                 else
@@ -77,17 +80,17 @@ class Cli
     end
 
     def more_info
-        puts "Would you like to get more information about #{self.name}? Y/N"
+        puts "Would you like to get more information about #{@type.name}? Y/N"
         input = gets.chomp 
-            if input.capitalize == "Y" && self.name == "Ectomorph"
-                puts "More info here on #{self.name}:"
+            if input.capitalize == "Y" && @type.name == "Ectomorph"
+                puts "More info here on #{@type.name}:"
                 puts "_________________________"
-                self.ectomorph_info
+                @scraper.info
                 training_tips
-            elsif input.capitalize == "Y" && self.name == "Endomorph"
-                puts "More info here on #{self.name}:"
+            elsif input.capitalize == "Y" && @type.name == "Mesomorph"
+                puts "More info here on #{@type.name}:"
                 puts "_________________________"
-                self.endomorph_info
+                @scraper.info
                 training_tips
             elsif input.capitalize == "Y" && self.name == "Mesomorph"
                 puts "More info here on #{self.name}:"
@@ -98,126 +101,6 @@ class Cli
                 puts "There's no additional information on #{self.name}:"
                 puts "_________________________"
                 
-            elsif input.capitalize == "N"
-                self.call
-            else
-                puts "Invalid!! Start Over!"
-                self.call
-            end
-    end
-
-
-    def mesomorph_input
-        puts "You are an Mesomorph"
-            mesomorph = Body_Type.new("Mesomorph".capitalize)
-            puts "Would you like to get more information about #{mesomorph.name}? Y/N"
-            input = gets.chomp 
-            if input.capitalize == "Y"
-                puts "More info here on #{mesomorph.name}:"
-                puts "_________________________"
-                mesomorph.mesomorph_info
-                puts "How about some training tips??  Y/N"
-                response = gets.chomp
-                if response.capitalize == "Y"
-                    mesomorph.mesomorph_training
-                    puts "Hope you found this information helpful!"
-                    puts "__________________________________________"
-                    self.call
-                elsif response.capitalize == "N"
-                    puts "Ok, Maybe next time!"
-                    self.call
-                else
-                    puts "Invalid"
-                    self.call
-                end
-                
-            elsif input.capitalize == "N"
-                self.call
-            else
-                puts "Invalid!! Start Over!"
-                self.call
-            end
-    end
-
-    def ectomorph_input
-        puts "You are an Ectomorph"
-            ectomorph = Body_Type.new("Ectomorph".capitalize)
-            puts "Would you like to get more information about #{ectomorph.name}? Y/N"
-            input = gets.chomp 
-            if input.capitalize == "Y"
-                puts "More info here on #{ectomorph.name}:"
-                puts "_________________________"
-                ectomorph.ectomorph_info
-                puts "How about some training tips??  Y/N"
-                response = gets.chomp
-                if response.capitalize == "Y"
-                    ectomorph.ectomorph_training
-                    puts "Hope you found this information helpful!"
-                    puts "__________________________________________"
-                    self.call
-                elsif response.capitalize == "N"
-                    puts "Ok, Maybe next time!"
-                    self.call
-                else
-                    puts "Invalid"
-                    self.call
-                end
-                
-            elsif input.capitalize == "N"
-                self.call
-            else
-                puts "Invalid!! Start Over!"
-                self.call
-            end
-
-
-
-    end
-
-    def endomorph_input
-        puts "You are an Endomorph"
-            endomorph = Body_Type.new("Endomorph".capitalize)
-            puts "Would you like to get more information about #{endomorph.name}? Y/N"
-            input = gets.chomp 
-            if input.capitalize == "Y"
-                puts "More info here on #{endomorph.name}:"
-                puts "_________________________"
-                endomorph.endomorph_info
-                puts "How about some training tips??  Y/N"
-                response = gets.chomp
-                if response.capitalize == "Y"
-                    endomorph.endomorph_training
-                    puts "Hope you found this information helpful!"
-                    puts "__________________________________________"
-                    self.call
-                elsif response.capitalize == "N"
-                    puts "Ok, Maybe next time!"
-                    self.call
-                else
-                    puts "Invalid"
-                    self.call
-                end
-                
-            elsif input.capitalize == "N"
-                self.call
-            else
-                puts "Invalid!! Start Over!"
-                self.call
-            end
-    end
-
-    def in_betweener_input
-        puts "You are an In-betweener"
-        in_betweener = Body_Type.new("In_Betweener".capitalize)
-        puts "Would you like to get more information about #{in_betweener.name}? Y/N"
-        input = gets.chomp 
-            if input.capitalize == "Y"
-                puts "More info here on #{in_betweener.name}:"
-                puts "_________________________"
-                in_betweener.in_betweener_info
-                puts "_________________________"
-                puts "There are no additional training tips!"
-                self.call
             elsif input.capitalize == "N"
                 self.call
             else
