@@ -3,8 +3,8 @@ class Cli
     attr_accessor :name, :type, :scraper, :ectomorph, :endomorph, :mesomorph, :in_betweener, :links
 
     def user
-    puts "What is your name?"
-    @name = gets.chomp
+        puts "What is your name?"
+        @name = gets.chomp if @name == nil
     end
 
     def call
@@ -57,8 +57,7 @@ class Cli
 
     def menu
         puts "Welcome to Rob's CLI Body Type program, #{self.name}! You can learn your body type and how to train!"
-        puts "I take only these inputs: Numbers 1-6, HELP, GOALS, or EXIT!"
-        puts "Or if you just need all of the important links on the page, type LINKS"
+        puts "I take only these inputs: Numbers 1-6, HELP, GOALS, LINKS, or EXIT!"
     end
 
     def list_types
