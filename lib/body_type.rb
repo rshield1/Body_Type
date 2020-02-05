@@ -2,8 +2,10 @@ class Body_Type
     attr_accessor :name, :info, :training
 
     @@all = []
+
     def initialize(attributes)
         attributes.each {|k,v| self.send(("#{k}="), v)}
+        @@all << self
     end
 
     #def initialize(name:, info:, training:)
