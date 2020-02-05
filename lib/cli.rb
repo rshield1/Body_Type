@@ -1,6 +1,6 @@
 require 'pry'
 class Cli
-    attr_accessor :name, :type, :scraper, :ectomorph, :endomorph, :mesomorph, :in_betweener, :links
+    attr_accessor :name
 
     def user
         puts "What is your name?"
@@ -23,28 +23,31 @@ class Cli
             more_info
         elsif
             input.to_i == 2
-            @scraper = Scraper.new("Mesomorph")
-            @type = Body_Type.new("Mesomorph")
+            hash = Scraper.new.get_mesomorph
+            @type = Body_Type.new(hash)
             more_info
         elsif
             input.to_i == 3
-            @scraper = Scraper.new("Endomorph")
-            @type = Body_Type.new("Endomorph")
+            hash = Scraper.new.get_endomorph
+            @type = Body_Type.new(hash)
             more_info
         elsif
             input.to_i == 4
-            @scraper = Scraper.new("In-Betweener")
-            @type = Body_Type.new("In-Betweener")
+            hash = Scraper.new.get_inbetweener
+            @type = Body_Type.new(hash)
             more_info
         elsif 
             input.to_s == "GOALS" || input.to_s =="goals" || input.to_i == 5
             puts "GOALS:"
-            @goals = Scraper.new("goals").goals
+            @goals = Scraper.new.goals
+            puts @goals
+            self.call
         elsif
             input.to_s == "LINKS" || input.to_s == "links" || input.to_i == 6
             puts "LINKS:"
             @links = Scraper.new.links
             puts @links
+            self.call
         elsif
             input == "EXIT" || input == "exit" || input.to_i == 7
             exit
@@ -57,7 +60,7 @@ class Cli
     end
 
     def menu
-        puts "Welcome to Rob's CLI Body Type program, #{self.name}! You can learn your body type and how to train!"
+        puts "Welcome #{self.name} to Rob's Body Type program! You can learn your body type and how to train!"
         puts "I take only these inputs: Numbers 1-6, HELP, GOALS, LINKS, or EXIT!"
     end
 
@@ -83,11 +86,11 @@ class Cli
                     puts "_________________________"
                     self.call
                 elsif response.capitalize == "Y" && @type.name == "Mesomorph"
-                    @scraper.training
+                    puts @type.training
                     puts "_________________________"
                     self.call
                 elsif response.capitalize == "Y" && @type.name == "Endomorph"
-                    @scraper.training
+                    puts @type.training
                     puts "_________________________"
                     self.call
                 elsif response.capitalize == "N"
@@ -100,7 +103,7 @@ class Cli
     end
 
     def more_info
-        puts "Would you like to get more information about #{@type.name}? Y/N"
+        puts "Would you like to get more information about #{@type.name}, #{self.name}? Y/N"
         input = gets.chomp 
             if input.capitalize == "Y" && @type.name == "Ectomorph"
                 puts "More info here on #{@type.name}:"
@@ -110,15 +113,15 @@ class Cli
             elsif input.capitalize == "Y" && @type.name == "Mesomorph"
                 puts "More info here on #{@type.name}:"
                 puts "_________________________"
-                @scraper.info
+                puts @type.info
                 training_tips
             elsif input.capitalize == "Y" && @type.name == "Endomorph"
                 puts "More info here on #{@type.name}:"
                 puts "_________________________"
-                @scraper.info
+                puts @type.info
                 training_tips
             elsif input.capitalize == "Y" && @type.name == "In-Betweener"
-                @scraper.info
+                puts @type.info
                 puts "There's no additional information on #{@type.name}:"
                 puts "_________________________"
                 self.call

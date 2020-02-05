@@ -35,8 +35,8 @@ class Scraper
         @@doc.search("#DPG p").children[29..35].text
 
         {name: "In-Betweener",
-            info: @@doc.search("#DPG p").children[29..35].text,
-            training: nil}
+        info: @@doc.search("#DPG p").children[29..35].text,
+        training: nil}
     end
   
     def goals
