@@ -61,7 +61,6 @@ class Cli
             @links = Scraper.new.links
             sleep 1
             puts @links
-
             self.call
         elsif
             input == "EXIT" || input == "exit" || input.to_i == 7

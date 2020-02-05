@@ -1,10 +1,10 @@
 
 class Scraper
-    #document needed to scrape
+    #Document needed to scrape
     @@doc = Nokogiri::HTML(open("https://www.bodybuilding.com/fun/becker3.htm"))
     
 
-    #method calls for each bodytype
+    #Method calls for each bodytype
 
     def get_ectomorph
         {name: "Ectomorph",
@@ -43,10 +43,4 @@ class Scraper
             link.attributes["href"].value
         end
     end
-
-     #(Element:0x43e3c18 {
-        #name = "a",
-        #attributes = [ #(Attr:0x446b0dc { name = "href", value = "https://www.bodybuilding.com/content/how-to-gain-weight.html" })],
-        #children = [ #(Text "gaining muscular weight")]
-        #})
 end

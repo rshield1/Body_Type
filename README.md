@@ -8,7 +8,7 @@
 TODO:
     Welcome to your new gem!! 
 
-    1. After cloning the repo to you local drive, change directory to the local folder.
+    1. After cloning the repo to you local drive, change directory to the cloned folder.
 
     2. Run $ bundle install in your terminal to load the gem dependencies.
 
@@ -24,7 +24,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[rshield1]/body_type. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/body_type/blob/master/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/[rshield1]/body_type. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/rshield1/body_type/blob/master/CODE_OF_CONDUCT.md).
 
 
 ## License
@@ -33,7 +33,7 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the BodyType project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/body_type/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the BodyType project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/rshield1/body_type/blob/master/CODE_OF_CONDUCT.md).
 
 
 When user input their body type, we want to srape all information about the user's body type i.e. :name, :info, :training. This information will be captured in the scraper.new object.  For example, if input == "ectomorph", ectomorph = scraper.new("ectomorph", "info", "training"). All of this information will be stored in the bodytype.new(input). Ectomorph will have access to their individual infomation and training within the methods after being scraped..
