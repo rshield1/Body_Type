@@ -18,8 +18,8 @@ class Cli
         puts "What is you body type, #{self.name}?"
         input = gets.chomp
         if input.to_i == 1
-            @scraper = Scraper.new("Ectomorph")
-            @type = Body_Type.new("Ectomorph")
+            hash = Scraper.new.get_ectomorph
+            @type = Body_Type.new(hash)
             more_info
         elsif
             input.to_i == 2
@@ -43,7 +43,8 @@ class Cli
         elsif
             input.to_s == "LINKS" || input.to_s == "links" || input.to_i == 6
             puts "LINKS:"
-            @links = Scraper.new("Links").links
+            @links = Scraper.new.links
+            puts @links
         elsif
             input == "EXIT" || input == "exit" || input.to_i == 7
             exit
@@ -78,7 +79,7 @@ class Cli
         puts "Hey #{self.name}, how about some training tips??  Y/N"
             response = gets.chomp
                 if response.capitalize == "Y" && @type.name == "Ectomorph"
-                    @scraper.training
+                    puts @type.training
                     puts "_________________________"
                     self.call
                 elsif response.capitalize == "Y" && @type.name == "Mesomorph"
@@ -104,7 +105,7 @@ class Cli
             if input.capitalize == "Y" && @type.name == "Ectomorph"
                 puts "More info here on #{@type.name}:"
                 puts "_________________________"
-                @scraper.info
+                puts @type.info
                 training_tips
             elsif input.capitalize == "Y" && @type.name == "Mesomorph"
                 puts "More info here on #{@type.name}:"

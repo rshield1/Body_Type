@@ -1,10 +1,12 @@
 class Body_Type
-    attr_accessor :name, :type
+    attr_accessor :name, :info, :training
 
     @@all = []
     
-    def initialize(name)
+    def initialize(name:, info:, training:)
         @name = name
+        @info = info
+        @training = training
         @@all << self
     end
 end

@@ -1,50 +1,53 @@
 
 class Scraper
-    attr_accessor :name, :info, :training, :goals, :links
-
-    def initialize(name)
-        @name = name
-    end
-
-    @@all = []
 
     @@doc = Nokogiri::HTML(open("https://www.bodybuilding.com/fun/becker3.htm"))
     
 
-    def info
-        if self.name == "Ectomorph"
-            puts @@doc.search("#DPG p").children[4..8].text
-        elsif self.name == "Mesomorph"
-            puts @@doc.search("#DPG p").children[9..10].text
-        elsif self.name == "Endomorph"
-           puts @@doc.search("#DPG p").children[11..12].text
-        elsif self.name == "In-Betweener"
-            puts @@doc.search("#DPG p").children[29..35].text
-        else
-            puts "not working man"
-        end
+    def get_ectomorph
+        @@doc.search("#DPG p").children[4..8].text
+        @@doc.search("#DPG p").children[18..20].text
+
+        {name: "Ectomorph",
+        info: @@doc.search("#DPG p").children[4..8].text,
+        training: @@doc.search("#DPG p").children[18..20].text}
     end
-    
-    def training
-        if self.name == "Ectomorph"
-            puts @@doc.search("#DPG p").children[18..20].text
-        elsif self.name == "Mesomorph"
-            puts @@doc.search("#DPG p").children[22..24].text
-        elsif self.name == "Endomorph"
-            puts @@doc.search("#DPG p").children[26..28].text
-        end
+
+    def get_mesomorph
+        @@doc.search("#DPG p").children[9..10].text
+        @@doc.search("#DPG p").children[22..24].text
+
+        {name: "Mesomorph",
+        info: @@doc.search("#DPG p").children[9..10].text,
+        training: @@doc.search("#DPG p").children[22..24].text}
+    end
+
+    def get_endomorph
+        @@doc.search("#DPG p").children[11..12].text
+        @@doc.search("#DPG p").children[26..28].text
+
+        {name: "Endomorph",
+        info: @@doc.search("#DPG p").children[11..12].text,
+        training: @@doc.search("#DPG p").children[26..28].text}
+    end
+
+    def get_inbetweener
+        @@doc.search("#DPG p").children[29..35].text
+
+        {name: "In-Betweener",
+            info: @@doc.search("#DPG p").children[29..35].text,
+            training: nil}
     end
   
     def goals
-        puts @@doc.search("#DPG p").children[14].attributes["href"].value
+        @@doc.search("#DPG p").children[14].attributes["href"].value
     end
 
     def links
         links = @@doc.search("#DPG p a")
-        links.each do | link |
-            puts "#{link.children.text.capitalize}:"
-            puts "#{link.attributes["href"].value}"
-            puts "________________________________"
+        links.map do | link |
+            link.children.text.capitalize
+            link.attributes["href"].value
         end
     end
 
