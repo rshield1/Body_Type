@@ -7,36 +7,24 @@ class Scraper
     #method calls for each bodytype
 
     def get_ectomorph
-
-        @@doc.search("#DPG p").children[4..8].text
-        @@doc.search("#DPG p").children[18..20].text
-
         {name: "Ectomorph",
         info: @@doc.search("#DPG p").children[4..8].text,
         training: @@doc.search("#DPG p").children[18..20].text}
     end
 
     def get_mesomorph
-        @@doc.search("#DPG p").children[9..10].text
-        @@doc.search("#DPG p").children[22..24].text
-
         {name: "Mesomorph",
         info: @@doc.search("#DPG p").children[9..10].text,
         training: @@doc.search("#DPG p").children[22..24].text}
     end
 
     def get_endomorph
-        @@doc.search("#DPG p").children[11..12].text
-        @@doc.search("#DPG p").children[26..28].text
-
         {name: "Endomorph",
         info: @@doc.search("#DPG p").children[11..12].text,
         training: @@doc.search("#DPG p").children[26..28].text}
     end
 
     def get_inbetweener
-        @@doc.search("#DPG p").children[29..35].text
-
         {name: "In-Betweener",
         info: @@doc.search("#DPG p").children[29..35].text,
         training: nil}
