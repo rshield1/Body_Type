@@ -1,6 +1,6 @@
 class Body_Type
     attr_accessor :name, :info, :training
-
+    #Keeps Track of all scraped body types
     @@all = []
 
     def initialize(attributes)
@@ -15,5 +15,4 @@ class Body_Type
         @@all << self
 
     end
-
 end

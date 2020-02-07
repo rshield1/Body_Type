@@ -1,4 +1,3 @@
-require 'pry'
 class Cli
     attr_accessor :name
 
@@ -25,7 +24,7 @@ class Cli
     def user_input
         puts "WHAT IS YOUR BODY TYPE, #{self.name.upcase}?"
         input = gets.chomp
-        if input.to_i == 1
+        if input.to_i == 1 
             hash = Scraper.new.get_ectomorph
             @type = Body_Type.new(hash)
             sleep 1
@@ -67,19 +66,19 @@ class Cli
             sleep 1
             exit
         else
-           puts "Invalid!! Try again!"
-           puts "--------------------"
-           sleep 1
-           self.call
+            puts "Invalid!! Try again!"
+            puts "--------------------"
+            sleep 1
+            self.call
         end
 
     end
-
+    #Main menu
     def menu
         puts "Welcome #{self.name} to Rob's Body Type program! You can learn your body type and how to train!"
         puts "I take only these inputs: Numbers 1-6, HELP, GOALS, LINKS, or EXIT!"
     end
-
+    #List of Body Types
     def list_types
         puts "1. Ectomorph (Slim)"
         puts "2. Mesomorph (Muscular)"
@@ -157,7 +156,7 @@ class Cli
                 self.call
             end
     end 
-    
+    #Exit Program
     def exit
         puts "SEE YOU LATER WHEN YOU'RE READY TO TRAIN, #{self.name.upcase}!"
     end
