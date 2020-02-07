@@ -5,13 +5,15 @@ class Body_Type
 
     def initialize(attributes)
         attributes.each {|k,v| self.send(("#{k}="), v)}
-        @@all << self
-    end
-
-    #def initialize(name:, info:, training:)
+    #   def initialize(name:, info:, training:)
     #    @name = name
     #    @info = info
-     #   @training = training
+    #    @training = training
     #    @@all << self
-    #end
+    #    end
+
+        @@all << self
+
+    end
+
 end
