@@ -15,4 +15,8 @@ class Body_Type
         @@all << self
 
     end
+
+    def self.all
+        @@all
+    end
 end
