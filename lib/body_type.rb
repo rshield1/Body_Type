@@ -19,4 +19,7 @@ class Body_Type
     def self.all
         @@all
     end
+
+
+    
 end

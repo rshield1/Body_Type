@@ -6,15 +6,15 @@
 ## Installation
 
 TODO:
-    Welcome to your new gem!! 
+    Welcome to my program!! 
 
-    1. After cloning the repo to you local drive, change directory to the cloned folder.
+    1. After cloning this repo to you local drive, change directory to the cloned folder.
 
     2. Run $ bundle install in your terminal to load the gem dependencies.
 
     3. open up the bin folder to run "bin/run" file.  The file should automatically recognize the ruby interperter, if not, run "ruby bin/run"
     
-    4. Enjoy finding your body type training techniques!
+    4. Enjoy finding your body type and training techniques!
 
 ## Development
 

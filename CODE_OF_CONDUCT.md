@@ -65,10 +65,10 @@ Project maintainers who do not follow or enforce the Code of Conduct in good
 faith may face temporary or permanent repercussions as determined by other
 members of the project's leadership.
 
-## Attribution
+## Conribution
 
-This Code of Conduct is adapted from the [Contributor Covenant][homepage], version 1.4,
-available at [https://contributor-covenant.org/version/1/4][version]
-
-[homepage]: https://contributor-covenant.org
-[version]: https://contributor-covenant.org/version/1/4/
+1. Fork it ( https://github.com/Body_Type/
+2. Create your feature branch (git checkout -b my-new-feature)
+3. Commit your changes (git commit -am 'Add some feature')
+4. Push to the branch (git push origin my-new-feature)
+5. Create a new Pull Request
