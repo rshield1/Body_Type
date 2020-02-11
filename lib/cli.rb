@@ -25,14 +25,17 @@ class Cli
         puts "WHAT IS YOUR BODY TYPE, #{self.name.upcase}?"
         input = gets.chomp
         if input.to_i == 1 
+            #if Body_Type.find_by_name("Ectomorph") == nil
             #I want to check if body type already exists in Body_Type.all array.
             #search for the @name with a find method
             #If it does, run Body_Type object with (hash) as the argument.
             #save it under @type
             hash = Scraper.new.get_ectomorph
             @type = Body_Type.new(hash)
-            binding.pry
-
+           # else
+            #    @type = Body_Type.info
+            #end
+    
             sleep 1
             more_info
         elsif
