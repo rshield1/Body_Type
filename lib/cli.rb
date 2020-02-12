@@ -4,7 +4,7 @@ class Cli
     #Grabs user name
 
     def user
-        if @name == nil
+        if  == nil
         puts "What is your name?"
         @name = gets.chomp
         end
@@ -24,36 +24,48 @@ class Cli
     def user_input
         puts "WHAT IS YOUR BODY TYPE, #{self.name.upcase}?"
         input = gets.chomp
-        if input.to_i == 1 
-            #if Body_Type.find_by_name("Ectomorph") == nil
+        if input.to_i == 1  
             #I want to check if body type already exists in Body_Type.all array.
             #search for the @name with a find method
-            #If it does, run Body_Type object with (hash) as the argument.
+            #If it does not appear in the different bodytypes, run normally
+            #run Body_Type object with (hash) as the argument.
             #save it under @type
-            hash = Scraper.new.get_ectomorph
-            @type = Body_Type.new(hash)
-           # else
-            #    @type = Body_Type.info
-            #end
-    
+            if Body_Type.find_by_name("Ectomorph") == nil
+                hash = Scraper.new.get_ectomorph
+                @type = Body_Type.new(hash)
+            else
+                @type = Body_Type.find_by_name("Ectomorph")
+            end
             sleep 1
             more_info
         elsif
             input.to_i == 2
-            hash = Scraper.new.get_mesomorph
-            @type = Body_Type.new(hash)
+            if Body_Type.find_by_name("Mesomorph") == nil
+                hash = Scraper.new.get_mesomorph
+                @type = Body_Type.new(hash)
+            else
+                @type = Body_Type.find_by_name("Mesomorph")
+            end
             sleep 1
             more_info
         elsif
             input.to_i == 3
-            hash = Scraper.new.get_endomorph
-            @type = Body_Type.new(hash)
+            if Body_Type.find_by_name("Endomorph") == nil
+                hash = Scraper.new.get_endomorph
+                @type = Body_Type.new(hash)
+            else
+                @type = Body_Type.find_by_name("Endomorph")
+            end
             sleep 1
             more_info
         elsif
             input.to_i == 4
-            hash = Scraper.new.get_inbetweener
-            @type = Body_Type.new(hash)
+            if Body_Type.find_by_name("In-Betweener") == nil
+                hash = Scraper.new.get_inbetweener
+                @type = Body_Type.new(hash)
+            else
+                @type = Body_Type.find_by_name("In-Betweener")
+            end
             sleep 1
             more_info
         elsif 
@@ -124,6 +136,7 @@ class Cli
                     self.call
                 else
                     puts "Invalid Response"
+                    self.call
                 end
     end
 
