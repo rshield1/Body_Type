@@ -4,7 +4,7 @@ class Cli
     #Grabs user name
 
     def user
-        if  == nil
+        if  @name == nil
         puts "What is your name?"
         @name = gets.chomp
         end
