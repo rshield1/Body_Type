@@ -20,54 +20,36 @@ class Cli
         sleep 1
         user_input
     end
+
+    #Helper Method
+    def get_or_scrape(bodytype)
+
+        if Body_Type.find_by_name(bodytype.capitalize) != nil
+            @type = Body_Type.find_by_name(bodytype.capitalize)
+           
+        else
+            hash = Scraper.new.send("get_#{bodytype}")
+            @type = Body_Type.new(hash)
+        end
+        sleep 1
+        more_info
+    end
+    
     #User input
     def user_input
         puts "WHAT IS YOUR BODY TYPE, #{self.name.upcase}?"
         input = gets.chomp
         if input.to_i == 1  
-            #I want to check if body type already exists in Body_Type.all array.
-            #search for the @name with a find method
-            #If it does not appear in the different bodytypes, run normally
-            #run Body_Type object with (hash) as the argument.
-            #save it under @type
-            if Body_Type.find_by_name("Ectomorph") == nil
-                hash = Scraper.new.get_ectomorph
-                @type = Body_Type.new(hash)
-            else
-                @type = Body_Type.find_by_name("Ectomorph")
-            end
-            sleep 1
-            more_info
+            get_or_scrape('ectomorph')
         elsif
             input.to_i == 2
-            if Body_Type.find_by_name("Mesomorph") == nil
-                hash = Scraper.new.get_mesomorph
-                @type = Body_Type.new(hash)
-            else
-                @type = Body_Type.find_by_name("Mesomorph")
-            end
-            sleep 1
-            more_info
+            get_or_scrape('mesomorph')
         elsif
             input.to_i == 3
-            if Body_Type.find_by_name("Endomorph") == nil
-                hash = Scraper.new.get_endomorph
-                @type = Body_Type.new(hash)
-            else
-                @type = Body_Type.find_by_name("Endomorph")
-            end
-            sleep 1
-            more_info
+            get_or_scrape('endomorph')
         elsif
             input.to_i == 4
-            if Body_Type.find_by_name("In-Betweener") == nil
-                hash = Scraper.new.get_inbetweener
-                @type = Body_Type.new(hash)
-            else
-                @type = Body_Type.find_by_name("In-Betweener")
-            end
-            sleep 1
-            more_info
+            get_or_scrape('inbetweener')
         elsif 
             input.to_s == "GOALS" || input.to_s =="goals" || input.to_i == 5
             puts "GOALS:"

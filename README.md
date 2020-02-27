@@ -2,7 +2,7 @@
 
 # Welcome to your new gem!! Read Installation instructions!
 
-
+# purpose of the program
 ## Installation
 
 TODO:
