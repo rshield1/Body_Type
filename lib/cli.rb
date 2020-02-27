@@ -90,7 +90,7 @@ class Cli
             puts "Invalid!! Try again!"
             puts "--------------------"
             sleep 1
-            self.call
+            user_input
         end
 
     end
